@@ -1,0 +1,25 @@
+Copyright (c) 2012 Arash Sharif
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+--------------------------------------------------------------------------------------------
+
+depends on gomail @ https://github.com/asharif/gomail to be compiled and in same dir
+depends on nmap @ http://nmap.org/
+
+this app is a simple network monitoring utility to notify you when unknown mac addresses jump onto your LAN.  it uses nmap so that needs to be installed
+
+here is how to use:
+
+1.  build gomail and place in same dir
+2.  modify email-alert.sh to use a smtp server that u want
+3.  modify known-mac-addr file to include all known mac addresses on your LAN.  the app looks for \n or "new line" for seperator
+4.  if you need to modify nmap-run.sh to look on diff subnet...default is 192.168.1.0/24
+5.  add crontab entry to run as often as desired
+
+example crontab entry
+*  *    * * *   root    (cd /opt/netsecure/; ./netsecure) > /dev/null
